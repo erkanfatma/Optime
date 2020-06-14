@@ -1,0 +1,4 @@
+﻿Veri tabanı nesnelerinin tutulduğu katmandır. 
+Veri tabanındaki tablolar kullanılarak oluşturulan Complex Types bu katmanda bulundurulur.
+
+Kısacası uygulama boyunca kullanılacak olan nesnelerin yer aldığı katmandır.

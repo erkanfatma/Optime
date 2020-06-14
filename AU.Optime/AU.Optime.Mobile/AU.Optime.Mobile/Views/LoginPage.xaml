@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.Optime.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource layoutStyle}" Margin="20,0,20,0" >
+
+                <Label Text="optime" Style="{StaticResource logoLblStyle}" HeightRequest="100" HorizontalOptions="StartAndExpand" FontSize="50" Margin="25,0,0,0"/>
+
+                <Label Text="Email"  Style="{StaticResource grayLblStyle}"></Label>
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="EmailEntry" Keyboard="Email" IsLine="False" />
+                </Frame>
+
+                <Label Text="Password" Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="PasswordEntry" IsPassword="True" IsLine="False" />
+                </Frame>
+                
+                <Label Text="Wrong email or password." IsVisible="False" x:Name="ErrorMessageLabel" FontFamily="{StaticResource TitilliumBold}" FontSize="16" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource ThemeDarkOrangeColor}"/>
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference LoginButton}, Path=IsLoading}"   AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="IndicatorButton"   VerticalOptions="Center" HorizontalOptions="Center"/>
+                
+                <Button x:Name="LoginButton" Text="Log In" Style="{StaticResource btnStyle}" Clicked="LoginButton_Clicked" />
+                
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                    <Label Text="Haven't any account?" VerticalOptions="Center" Style="{StaticResource grayLblStyle}" FontSize="Subtitle" />
+                    <Button x:Name="RegisterButton" Text="Register" VerticalOptions="Center" TextColor="{StaticResource ThemeDarkBlueColor}" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="RegisterButton_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

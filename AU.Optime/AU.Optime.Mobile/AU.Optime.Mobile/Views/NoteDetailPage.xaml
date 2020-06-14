@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls ="clr-namespace:AU.Optime.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.NoteDetailPage"
+             BindingContext="{Binding .}"
+             Title="Note Detail">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Padding="0" Margin="10,0">
+                <!--<Frame CornerRadius="10" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource ThemeFrameColor}" >-->
+                    <StackLayout Orientation="Horizontal" Margin="0" Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource ThemeFrameColor}">
+                        <Button Text="&#xf0c7;" FontFamily="{StaticResource FontAwesomeRegular}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Large" BackgroundColor="Transparent" Margin="0,0,-35,0" Padding="0" Clicked="SaveButton_Clicked"/>
+                        <Button Text="Save" x:Name="SaveButton" FontFamily="{StaticResource TitilliumBold}" FontSize="Default" BackgroundColor="Transparent" Margin="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="0" Clicked="SaveButton_Clicked"/>
+                    </StackLayout>
+                <!--</Frame>-->
+                <!--<Frame CornerRadius="10" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource ThemeFrameColor}">-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" BackgroundColor="{StaticResource ThemeFrameColor}" >
+                    <Button Text="&#xf1f8;" FontFamily="{StaticResource FontAwesomeRegular}" VerticalOptions="CenterAndExpand" FontSize="Large" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" Padding="0" Margin="0,0,-35,0"  Clicked="DeleteButton_Clicked"/>
+                    <Button Text="Delete" x:Name="DeleteButton" FontFamily="{StaticResource TitilliumBold}" Clicked="DeleteButton_Clicked" FontSize="Default" BackgroundColor="Transparent" Margin="0" Padding="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <!--</Frame>-->
+            </StackLayout>
+
+
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                <controls:CustomEditor Text="{Binding Description}"  TextColor="{StaticResource ThemeSecondaryTextColor}" FontFamily="{StaticResource TitilliumRegular}" x:Name="DescriptionEditor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,5" FontSize="Body"/>
+
+                <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Start" Orientation="Horizontal" Margin="5,5,0,0">
+                    <CheckBox IsChecked="{Binding IsImportant}" VerticalOptions="CenterAndExpand" Color="{StaticResource ThemeBlueColor}" x:Name="IsImportantOption"/>
+                    <Label Text="Important" VerticalOptions="CenterAndExpand" FontSize="Body" />
+                </StackLayout>
+                <Label Text="{Binding RegisterTime, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}" FontSize="Body" TextColor="{StaticResource ThemeDarkBlueColor}" VerticalOptions="End" HorizontalOptions="End" Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

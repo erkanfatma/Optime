@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:styles="clr-namespace:AU.Optime.Mobile.Styles"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.App">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:Colors/>
+                <styles:Fonts/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+        <Style x:Key="frameStyle" TargetType="Frame">
+            <Setter Property="OutlineColor" Value="{StaticResource ThemeGrayColor}"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="Padding" Value="1"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+        </Style>
+
+        <Style x:Key="logoLblStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource LightningCrashes}"/>
+            <Setter Property="TextColor" Value="{StaticResource ThemeBlackColor}"/>
+        </Style>
+
+        <Style x:Key="layoutStyle" TargetType="StackLayout">
+            <Setter Property="Orientation" Value="Vertical"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="Margin" Value="10,10"></Setter>
+            <Setter Property="Spacing" Value="10"></Setter>
+        </Style>
+
+        <Style  x:Key="grayLblStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource ThemeGrayColor}" />
+            <Setter Property="FontFamily" Value="{StaticResource TitilliumRegular}"></Setter>
+        </Style>
+
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource ThemeBlueColor}"></Setter>
+            <Setter Property="TextColor" Value="White"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+            <Setter Property="FontFamily" Value="{StaticResource TitilliumBold}"></Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.ProjectListPage"
+             Title="Projects">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical" Spacing="0" AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" Margin="0,5,0,0">
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference lstProjects}, Path=IsLoading}"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="listIndicator"  VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource ThemeBlueColor}" />
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label  x:Name="emptyMessage" FontFamily="{StaticResource TitilliumRegular}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource ThemeDarkBlueColor}" IsVisible="False" />
+                </StackLayout>
+                <ListView x:Name="lstProjects" ItemsSource="{Binding .}" HasUnevenRows="True" ItemSelected="OnItemSelected" SeparatorColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="10" Margin="15,5" BackgroundColor="{StaticResource ThemeFrameColor}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="12*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="&#xf328;" FontFamily="{StaticResource FontAwesomeRegular}" TextColor="{StaticResource ThemeBlueColor}" FontSize="30" Grid.Column="0" Grid.RowSpan="2" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+                                        <Label Text="{Binding Title}" FontFamily="{StaticResource TitilliumBold}" FontSize="17" Grid.Row="0" Grid.Column="1" TextColor="{StaticResource ThemeDarkBlueColor}" />
+                                        <Label Text="{Binding Description}" Grid.Row="1"  Grid.Column="1" TextColor="{StaticResource ThemeSecondaryTextColor}" FontSize="Default"/>
+
+                                        <Label Text="&#xf105;" FontFamily="{StaticResource FontAwesomeRegular}" FontSize="50" Grid.RowSpan="2" Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource ThemeGrayColor}" />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+               
+            </StackLayout>
+
+            <Button x:Name="AddButton" HorizontalOptions="End" VerticalOptions="End" WidthRequest="60" HeightRequest="60" CornerRadius="30" Text="+" FontSize="30" BackgroundColor="{StaticResource ThemeOrangeColor}" TextColor="White" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize" Margin="10,10" Clicked="AddButton_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

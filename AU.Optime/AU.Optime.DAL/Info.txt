@@ -1,0 +1,3 @@
+﻿Data Access Layer.
+Veri tabanında insert/update/delete/select sorgularının çalıştırıldığı katmandır.
+Yani ORM implementations bu katmanda gerçekleşir. 

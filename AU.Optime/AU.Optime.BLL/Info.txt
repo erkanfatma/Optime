@@ -1,0 +1,3 @@
+﻿Projeyi ilgilendiren iş süreçlerinin bulunduğu katmandır.
+Kontroller bu katmanda gerçekleşmektedir.
+UI ve Db arasındaki iletişim bu katmanda gerçekleşir. 

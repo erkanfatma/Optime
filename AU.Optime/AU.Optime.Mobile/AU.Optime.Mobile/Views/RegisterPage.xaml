@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.Optime.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.RegisterPage">
+    <ContentPage.Resources>
+        
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource layoutStyle}"  Margin="15,10,15,0">
+
+                <Label Text="optime" Style="{StaticResource logoLblStyle}" HeightRequest="80" HorizontalOptions="StartAndExpand" FontSize="45"/>
+
+                <Label Text="Name Surname"  Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="FullNameEntry" Keyboard="Text" IsLine="False" />
+                </Frame>
+
+                <Label Text="Email"  Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="EmailEntry" Keyboard="Email" IsLine="False" />
+                </Frame>
+
+                <Label Text="Username"  Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="UserNameEntry" Keyboard="Default" IsLine="False" />
+                </Frame>
+
+                <Label Text="Password" Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="PasswordEntry" IsPassword="True" IsLine="False" />
+                </Frame>
+
+                <Label Text="Confirm Password"  Style="{StaticResource grayLblStyle}" />
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry x:Name="ConfirmPasswordEntry" IsPassword="True" IsLine="False" />
+                </Frame>
+
+
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference LoginButton}, Path=IsLoading}"   AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="IndicatorButton"   VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Button x:Name="RegisterButton" Text="Register" Style="{StaticResource btnStyle}" Clicked="RegisterButton_Clicked" />
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                    <Label Text="Already have an account?" VerticalOptions="Center" Style="{StaticResource grayLblStyle}" FontSize="Subtitle" />
+                    <Button x:Name="LoginButton" Text="Log in" VerticalOptions="Center" TextColor="{StaticResource ThemeDarkBlueColor}" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="LoginButton_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

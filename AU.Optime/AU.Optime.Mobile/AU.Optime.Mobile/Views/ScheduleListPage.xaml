@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.ScheduleListPage"
+             Title="Schedule">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="iconButton">
+                <Setter Property="FontSize"  Value="28"/>
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesomeRegular}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style> 
+                
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical" Spacing="0" AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference lstTasks}, Path=IsLoading}"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="listIndicator"  VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource ThemeBlueColor}" IsVisible="False" />
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label  x:Name="emptyMessage" FontFamily="{StaticResource TitilliumRegular}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource ThemeDarkBlueColor}" IsVisible="False" />
+                </StackLayout> 
+                <ListView x:Name="lstTasks" ItemsSource="{Binding .}" HasUnevenRows="True" ItemSelected="OnItemSelected" SeparatorColor="Transparent">
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="5,5">
+                            <Button Text="Daily" x:Name="DailyScheduleButton" Clicked="DailyScheduleButton_Clicked" BackgroundColor="{StaticResource ThemeBlueColor}" TextColor="White" FontFamily="{StaticResource TitilliumBold}" CornerRadius="10" />
+                            <Button Text="Weekly" x:Name="WeeklyScheduleButton" Clicked="WeeklyScheduleButton_Clicked" BackgroundColor="{StaticResource ThemeBlueColor}" TextColor="White" FontFamily="{StaticResource TitilliumBold}" CornerRadius="10" />
+                            <Button Text="Monthly" x:Name="MonthlyScheduleButton" Clicked="MonthlyScheduleButton_Clicked" BackgroundColor="{StaticResource ThemeBlueColor}" TextColor="White" FontFamily="{StaticResource TitilliumBold}" CornerRadius="10" />
+                            <Button Text="All" x:Name="AllScheduleButton" Clicked="AllScheduleButton_Clicked" BackgroundColor="{StaticResource ThemeBlueColor}" TextColor="White" FontFamily="{StaticResource TitilliumBold}" CornerRadius="10" />
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="10,8,10,0">
+                                    <Frame BackgroundColor="{StaticResource ThemeFrameColor}" CornerRadius="15" HasShadow="True">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout Grid.Column="0" Grid.Row="0">
+                                                <Label Text="{Binding DateOfSchedule}" FontFamily="{StaticResource TitilliumRegular}" FontSize="Small"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="0" Grid.Row="1">
+                                                <Button Text="&#xf254;" Style="{StaticResource iconButton}" TextColor="{StaticResource ThemeDarkOrangeColor}" VerticalOptions="CenterAndExpand"  />
+                                                <!--<Label Text="{Binding TimeOfSchedule}" FontSize="Medium" TextColor="{StaticResource ThemeBlackColor}" VerticalOptions="CenterAndExpand" FontFamily="{StaticResource TitilliumBold}" />-->
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1" Grid.RowSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                <Label IsVisible="False" Text="{Binding SubTaskId}"/>
+                                                <Button Text="&#xf1da;" Style="{StaticResource iconButton}" TextColor="{StaticResource ThemeBlueColor}" x:Name="SnoozeButton" Clicked="SnoozeButton_Clicked"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="2" Grid.Row="0" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Title}" FontSize="Body" TextColor="{StaticResource ThemeBlackColor}" FontFamily="{StaticResource TitilliumBold}" />
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding SessionTimeOfSchedule}" FontFamily="{StaticResource TitilliumRegular}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="3" Grid.RowSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                <Label IsVisible="False" Text="{Binding SubTaskId}"/>
+                                                <Button Text="&#xf00c;" Style="{StaticResource iconButton}" TextColor="{StaticResource ThemeDarkBlueColor}" x:Name="DoneButton" Clicked="DoneButton_Clicked" /> 
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button x:Name="AddButton" HorizontalOptions="End" VerticalOptions="End" WidthRequest="60" HeightRequest="60" CornerRadius="30" Text="+" FontSize="30" BackgroundColor="{StaticResource ThemeOrangeColor}" TextColor="White" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize" Margin="10,10" Clicked="AddButton_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

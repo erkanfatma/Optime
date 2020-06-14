@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AU.Optime.Mobile.Styles.Colors">
+    
+<!-- Basic colors of the project-->
+
+    <Color x:Key="ThemeBackgroundDetailColor">#F0F0F0</Color>
+    <Color x:Key="ThemeOrangeColor">#ff971d</Color>
+    <Color x:Key="ThemeDarkOrangeColor">#e88a1a</Color>
+    <Color x:Key="ThemeGrayColor">#ACACAC</Color>
+    <Color x:Key="ThemeBlackColor">#484747</Color>
+    <Color x:Key="ThemeWhiteColor">#FFFFFF</Color>
+    <Color x:Key="ThemeGrayBackgroundColor">#F5F5F5</Color>
+    <Color x:Key="ThemeSecondaryTextColor">#707070</Color>
+    <Color x:Key="ThemeDarkBlueColor">#0f4c75</Color>
+    <Color x:Key="ThemeBlueColor">#3282b8</Color>
+    <Color x:Key="ThemeFrameColor">#f9f6f7</Color>
+</ResourceDictionary>

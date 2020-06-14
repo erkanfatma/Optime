@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.Optime.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.Popups.EditProjectPopup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" >
+
+    <pages:PopupPage.Resources>
+        <Style  x:Key="grayLblStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource ThemeDarkBlueColor}" />
+            <Setter Property="FontFamily" Value="{StaticResource TitilliumRegular}"></Setter>
+        </Style>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource ThemeBlueColor}"></Setter>
+            <Setter Property="TextColor" Value="White"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+            <Setter Property="FontFamily" Value="{StaticResource TitilliumBold}"></Setter>
+        </Style>
+        <Style x:Key="frameStyle" TargetType="Frame">
+            <Setter Property="OutlineColor" Value="{StaticResource ThemeGrayColor}"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="Padding" Value="1"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+        </Style>
+    </pages:PopupPage.Resources>
+
+    <pages:PopupPage.Content>
+        <StackLayout Padding="20" Margin="30" BackgroundColor="{StaticResource ThemeGrayBackgroundColor}" HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                <Label Text="Edit Project" Style="{StaticResource grayLblStyle}" FontSize="Medium"/>
+                    <Button Text="&#xf1f8;" x:Name="DeleteButton" BackgroundColor="Transparent" TextColor="Red" FontFamily="{StaticResource FontAwesomeRegular}" Clicked="DeleteButton_Clicked" VerticalOptions="Start" HorizontalOptions="EndAndExpand" FontSize="Large" />
+                </StackLayout>
+                <Label Text="Title"></Label>
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEntry MaxLength="100" x:Name="TitleEntry" FontSize="17" IsLine="False"/>
+                </Frame>
+                <Label Text="Description"></Label>
+                <Frame Style="{StaticResource frameStyle}">
+                    <controls:CustomEditor MaxLength="100" x:Name="DescriptionEditor" HeightRequest="200"  WidthRequest="300"  FontSize="17"/>
+                </Frame>
+            </StackLayout>
+            <Button Text="Save" x:Name="AddButton" Style="{StaticResource btnStyle}" Clicked="AddButton_Clicked" />
+        </StackLayout>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

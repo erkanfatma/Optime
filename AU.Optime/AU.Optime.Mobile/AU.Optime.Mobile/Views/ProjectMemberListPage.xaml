@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.ProjectMemberListPage"
+             Title="Project Members">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical" Spacing="0" AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" Margin="0,5,0,0">
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference lstMembers}, Path=IsLoading}"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="listIndicator"  VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource ThemeBlueColor}" />
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label  x:Name="emptyMessage" FontFamily="{StaticResource TitilliumRegular}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource ThemeDarkBlueColor}" IsVisible="False" />
+                </StackLayout>
+                <ListView x:Name="lstMembers" ItemsSource="{Binding .}" HasUnevenRows="True" SeparatorColor="Transparent" ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" Margin="10,5,10,5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding FullName}" FontFamily="{StaticResource TitilliumBold}" FontSize="Medium" TextColor="{StaticResource ThemeDarkBlueColor}" Grid.Row="0" Grid.Column="0"/>
+                                        <Label Text="{Binding Email}" FontFamily="{StaticResource TitilliumRegular}" FontSize="Default" TextColor="{StaticResource ThemeSecondaryTextColor}" Grid.Row="1" Grid.Column="0"/>
+                                        <Label Text="{Binding ManagerText}" FontFamily="{StaticResource TitilliumRegular}" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"  FontSize="Default" TextColor="{StaticResource ThemeDarkOrangeColor}"></Label>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+              
+            </StackLayout>
+
+            <Button x:Name="EditButton" HorizontalOptions="End" VerticalOptions="End" WidthRequest="60" HeightRequest="60" CornerRadius="30" Text="&#xf303;" FontFamily="{StaticResource FontAwesomeRegular}" FontSize="23" BackgroundColor="{StaticResource ThemeBlueColor}" TextColor="White" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize" Margin="10,10" Clicked="EditButton_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

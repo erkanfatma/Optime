@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:pages="clr-namespace:AU.Optime.Mobile.Views"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.Main.AppMainPage"
+            BarBackgroundColor="{StaticResource BgColor}"
+            UnselectedTabColor="{StaticResource GrayColor}"
+            BarTextColor="{StaticResource ThemeDarkOrangeColor}">
+    <!--Pages can be added as references or inline-->
+
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="ThemeColor">#530100</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">#F0F0F0</Color>
+            <Style x:Key="BaseStyle" TargetType="TabbedPage">
+
+            </Style>
+
+            <Style TargetType="TabbedPage" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <!--<pages:ScheduleListPage Title="Schedule" IconImageSource="ScheduleIcon2" />
+    <pages:TaskListPage Title="Tasks" IconImageSource="TaskIcon.png" />
+    <pages:ProjectListPage Title="Projects" IconImageSource="ProjectIcon" />
+    <pages:NoteListPage Title="Notes" IconImageSource="NoteIcon" />
+    <pages:AccountPage Title="Account" IconImageSource="AccountIcon" />-->
+</TabbedPage>
+ 

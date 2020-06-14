@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.Optime.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.AddTaskPage">
+    <ContentPage.Resources>
+        <Style x:Key="frameStyle" TargetType="Frame">
+            <Setter Property="OutlineColor" Value="{StaticResource ThemeGrayColor}" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="10,5,10,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="0" Grid.ColumnSpan="2" >
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal" Margin="4,4">
+                            <Label Text="RegisterTime" HorizontalOptions="StartAndExpand" />
+                            <Label x:Name="RegisterTimeLabel" FontSize="15"  HorizontalOptions="EndAndExpand"  TextColor="{StaticResource ThemeDarkBlueColor}"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                    <Label Text="Title" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <controls:CustomEntry  MaxLength="100" x:Name="TitleEntry" FontSize="17" IsLine="False"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                    <Label Text="Description" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <controls:CustomEditor x:Name="DescriptionEditor"  HeightRequest="150"  WidthRequest="300"  FontSize="17" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Grid.ColumnSpan="2">
+                    <Label Text="Due Time" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="&#xf073;" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center" FontSize="Medium" Margin="10,0" TextColor="{StaticResource ThemeDarkBlueColor}"/>
+                            <controls:CustomDatePicker x:Name="DueTimeDatePicker" IsLine="False"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="4" Grid.ColumnSpan="2">
+                    <Label Text="Task Time" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <controls:CustomTimePicker  x:Name="SessionTimePicker" IsLine="False"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="5" Grid.ColumnSpan="2" IsVisible="False">
+                    <Label Text="Status" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal" Margin="5,5">
+                            <CheckBox x:Name="StatusCheckBox" Color="{StaticResource ThemeDarkBlueColor}" />
+                            <Label Text="Done" VerticalOptions="CenterAndExpand" FontSize="17" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6" Grid.ColumnSpan="2">
+                    <Label Text="Pomodoro" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal" Margin="5,5">
+                            <CheckBox Color="{StaticResource ThemeDarkBlueColor}" x:Name="PomodoroCheckBox"  />
+                            <Label Text="Pomodoro" VerticalOptions="CenterAndExpand" FontSize="17" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="7" Grid.ColumnSpan="2">
+                    <Label Text="Reminder" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal" Margin="5,5">
+                            <CheckBox  Color="{StaticResource ThemeDarkBlueColor}" x:Name="ReminderCheckBox" />
+                            <Label Text="Reminder" VerticalOptions="CenterAndExpand" FontSize="17" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="8" Grid.ColumnSpan="2">
+                    <Label Text="Complex" />
+                    <Frame Style="{StaticResource frameStyle}">
+                        <StackLayout Orientation="Horizontal" Margin="5,5">
+                            <CheckBox x:Name="ComplexCheckBox"  Color="{StaticResource ThemeDarkBlueColor}" />
+                            <Label Text="Complex Task" VerticalOptions="CenterAndExpand" FontSize="17" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="9" Grid.ColumnSpan="2" IsVisible="False">
+                    <Label Text="Repeater" IsVisible="False" />
+                    <Frame Style="{StaticResource frameStyle}" IsVisible="False">
+                        <StackLayout Orientation="Horizontal" Margin="5,5" IsVisible="False">
+                            <CheckBox  Color="{StaticResource ThemeDarkBlueColor}" IsVisible="False" x:Name="RepeaterCheckBox" />
+                            <Label Text="Done" VerticalOptions="CenterAndExpand" FontSize="17" IsVisible="False" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="10" Grid.ColumnSpan="2">
+                    <Button Text="ADD" x:Name="AddButton" Clicked="AddButton_Clicked" BackgroundColor="{StaticResource ThemeBlueColor}" Margin="5,5"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,8 @@
+﻿Temel katmandır. 
+Loglama, cache, transaction yönetimi, performans yönetimi, validation yönetimi, rol bazlı güvenlik, veri tabanı ORM entegrasyonları bu katmanda gerçekleştirilmektedir. 
+
+Burada temel olarak NHibernate ve Entity Framework implementasyonları geliştirilmiştir.
+Repository deseni oluşturulmuştur --> Generic repository yapısı 
+
+DataAccess: Entity repositorysi oluşturulmuştur.
+EntityFramework :Veri erişim ortamına eklendiği yerdir. EntityFramework ORM kullanıldığı için işlemler bu klasörde yer almaktadır. Farklı ORM teknolojileri kullanıldığında bu kısımdan eklenebilir. 

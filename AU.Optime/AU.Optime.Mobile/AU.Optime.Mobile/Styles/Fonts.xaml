@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="AU.Optime.Mobile.Styles.Fonts">
+
+    <!--Main fonts of the project-->
+    <OnPlatform x:Key="LightningCrashes" x:TypeArguments="x:String" Android="Fonts/LightningCrashes.ttf#Lightning Crashes" />
+
+    <OnPlatform x:Key="TitilliumRegular" x:TypeArguments="x:String" Android="Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+    <OnPlatform x:Key="TitilliumBold" x:TypeArguments="x:String" Android="Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+
+
+    <OnPlatform x:TypeArguments="x:String"  x:Key="FontAwesomeBrands" Android="Fonts/fa-brands-400.ttf#FaBrands" />
+    <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid"  Android="Fonts/fa-regular-400.ttf#FaRegular"/>
+    <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegular" Android="Fonts/fa-solid-900.ttf#FaSolid" />
+
+</ResourceDictionary>

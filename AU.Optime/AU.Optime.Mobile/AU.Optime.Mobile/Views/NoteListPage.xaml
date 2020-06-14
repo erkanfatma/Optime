@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AU.Optime.Mobile.Views.NoteListPage"
+             Title="Notes">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="iconButton">
+            <Setter Property="FontSize"  Value="20"/>
+            <Setter Property="FontFamily" Value="{StaticResource FontAwesomeRegular}" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content> 
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical" Spacing="0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference lstNotes}, Path=IsLoading}"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,-1,-1" x:Name="listIndicator"  VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource ThemeBlueColor}" />
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label  x:Name="emptyMessage" FontFamily="{StaticResource TitilliumRegular}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource ThemeDarkBlueColor}" IsVisible="False" />
+                </StackLayout>
+                <ListView x:Name="lstNotes" ItemsSource="{Binding .}" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="OnItemSelected" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <Frame Margin="13,5" Padding="15,15" BorderColor="{StaticResource ThemeDarkBlueColor}"> 
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                                            <Label Text="{Binding Description}" TextColor="{StaticResource ThemeSecondaryTextColor}" />
+                                        <Label Text="{Binding RegisterTime, StringFormat='{}{0:dd MMM yyyy }'}" TextColor="{StaticResource ThemeDarkBlueColor}" FontSize="Small" HorizontalTextAlignment="End"/>
+                                    </StackLayout> 
+                                </Frame> 
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button x:Name="AddButton" HorizontalOptions="End" VerticalOptions="End" WidthRequest="60" HeightRequest="60" CornerRadius="30" Text="+" FontSize="30" BackgroundColor="{StaticResource ThemeOrangeColor}" TextColor="White" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize" Margin="10,10" Clicked="AddButton_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
