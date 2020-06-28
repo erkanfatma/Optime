@@ -7,15 +7,15 @@ namespace AU.Optime.Mobile {
       public partial class App : Application {
            // private readonly IMemoryCache _cache;
             public App() {
-                  //_cache = new MemoryCache(new MemoryCacheOptions() { });
+                  _cache = new MemoryCache(new MemoryCacheOptions() { });
                   InitializeComponent();
-                  //if(Application.Current.Properties.ContainsKey("userid"))
-                  //var userid = _cache.Get("userid");
-                  //if(userid != null && userid != "0")
-                  //MainPage = new AppShell();
-                  MainPage = new LoginPage();
-                  //else
-                  //      App.Current.MainPage = new LoginPage();
+                  if(Application.Current.Properties.ContainsKey("userid"))
+                  var userid = _cache.Get("userid");
+                  if(userid != null && userid != "0")
+                  MainPage = new AppShell();
+                  //MainPage = new LoginPage();
+                  else
+                        App.Current.MainPage = new LoginPage();
             }
 
             protected override void OnStart() {
