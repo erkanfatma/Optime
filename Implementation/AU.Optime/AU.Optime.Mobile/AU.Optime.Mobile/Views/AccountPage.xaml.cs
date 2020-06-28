@@ -32,7 +32,7 @@ namespace AU.Optime.Mobile.Views {
             }
 
             private async void SaveButton_Clicked(object sender, EventArgs e) {
-                  //await userManager.PutAsync(user);
+                  await userManager.PutAsync(user);
                   DependencyService.Get<IMessage>().ShortAlert("Account updated.");
             }
       }
